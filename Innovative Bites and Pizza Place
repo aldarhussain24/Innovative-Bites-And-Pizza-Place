@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Innovative Bite &amp; Pizza Place – Order online in Lahore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;0,800;1,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#F3F3F0; --surface:#FFFFFF; --surface2:#EAEAE5; --text:#191919; --muted:#5F5F58;
+  --line:#D9D9D2; --accent:#FFC61A; --accent-ink:#191919; --red:#C8281A; --ok:#1E8E4E;
+  --hero:#0E0E0E; --hero-text:#FFFFFF;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121212; --surface:#1C1C1B; --surface2:#262624; --text:#F2F2EE; --muted:#A5A59C;
+    --line:#333330; --red:#FF6A57; --ok:#4CC97F;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121212; --surface:#1C1C1B; --surface2:#262624; --text:#F2F2EE; --muted:#A5A59C;
+  --line:#333330; --red:#FF6A57; --ok:#4CC97F;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:auto;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Rubik',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.5;-webkit-text-size-adjust:100%}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+h1,h2,h3{margin:0;line-height:1.1}
+.display{font-weight:800;font-style:italic;letter-spacing:-.01em}
+
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--hero);color:var(--hero-text);border-bottom:2px solid var(--accent)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px}
+.brand{font-weight:800;font-style:italic;font-size:19px;text-decoration:none;white-space:nowrap}
+.brand span{color:var(--accent)}
+.top nav{display:flex;gap:18px;font-size:14px}
+.top nav a{text-decoration:none;opacity:.85}
+.top nav a:hover{opacity:1;color:var(--accent)}
+.cartbtn{background:var(--accent);color:var(--accent-ink);border:0;border-radius:999px;padding:8px 14px;font-weight:700;font-size:14px;display:flex;gap:8px;align-items:center}
+.cartbtn .n{background:var(--accent-ink);color:var(--accent);border-radius:999px;min-width:22px;height:22px;display:inline-grid;place-items:center;font-size:12px;padding:0 6px}
+@media(max-width:640px){.top nav{display:none}}
+
+/* hero */
+.hero{background:var(--hero);color:var(--hero-text);position:relative;overflow:hidden}
+.hero .wrap{padding-top:44px;padding-bottom:44px;display:grid;gap:28px;grid-template-columns:1.3fr 1fr;align-items:center}
+.hero h1{font-size:clamp(40px,8vw,84px);font-weight:800;font-style:italic;text-transform:none}
+.hero h1 em{display:block;color:var(--accent);font-style:italic}
+.hero p.lead{font-size:17px;max-width:44ch;color:#D8D8D0;margin:16px 0 22px}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:14px;background:#1E1E1E;border:1px solid #333;border-radius:999px;padding:6px 12px;margin-bottom:18px}
+.dot{width:9px;height:9px;border-radius:50%;background:#888}
+.status.open .dot{background:#4CC97F;box-shadow:0 0 0 4px rgba(76,201,127,.2)}
+.status.closed .dot{background:#FF6A57}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;padding:12px 18px;font-weight:700;text-decoration:none;border:2px solid transparent;font-size:15px}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{border-color:#555;color:#fff;background:transparent}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+.pizza{width:100%;max-width:440px;justify-self:center;position:relative}
+.pizza img{width:100%;height:auto;display:block;border-radius:18px;border:3px solid var(--accent);transform:rotate(2deg)}
+.facts{background:var(--accent);color:var(--accent-ink)}
+.facts .wrap{display:flex;flex-wrap:wrap;gap:8px 28px;padding-top:12px;padding-bottom:12px;font-weight:700;font-size:14px}
+@media(max-width:760px){.hero .wrap{grid-template-columns:1fr}.pizza{max-width:100%;order:-1}}
+
+/* menu */
+section{padding:44px 0}
+.sec-title{font-size:clamp(28px,5vw,40px);margin-bottom:6px}
+.sec-sub{color:var(--muted);margin:0 0 22px}
+.tabs{position:sticky;top:calc(env(safe-area-inset-top,0px) + 56px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line);margin:0 -18px;padding:10px 18px;overflow-x:auto;display:flex;gap:8px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;border:1.5px solid var(--line);background:var(--surface);color:var(--text);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:500;text-decoration:none}
+.tab.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+.cat{padding-top:30px}
+.cat h3{font-size:26px;font-weight:800;font-style:italic;margin-bottom:4px}
+.cat .note{color:var(--muted);font-size:14px;margin:0 0 14px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.card .row{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.card h4{margin:0;font-size:17px;font-weight:700}
+.card .desc{margin:2px 0 0;color:var(--muted);font-size:13.5px}
+.price{font-weight:800;color:var(--text);white-space:nowrap}
+.sizes{display:flex;flex-wrap:wrap;gap:6px}
+.size{border:1.5px solid var(--line);background:var(--surface2);color:var(--text);border-radius:9px;padding:5px 10px;font-size:13px;line-height:1.25;text-align:center}
+.size b{display:block;font-size:12px;font-weight:500;color:var(--muted)}
+.size.on{border-color:var(--text);background:var(--accent);color:var(--accent-ink)}
+.size.on b{color:#3a3a2a}
+select.flav{width:100%;padding:9px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--surface2);color:var(--text);font:inherit;font-size:14px}
+.add{margin-top:auto;background:var(--text);color:var(--bg);border:0;border-radius:10px;padding:10px 12px;font-weight:700;font-size:14px;display:flex;justify-content:space-between;align-items:center}
+.add:hover{background:var(--accent);color:var(--accent-ink)}
+.deal .tag{align-self:flex-start;background:var(--red);color:#fff;font-weight:800;font-style:italic;font-size:13px;border-radius:7px;padding:3px 9px}
+.deal ul{margin:0;padding-left:18px;font-size:14px;color:var(--muted)}
+[data-theme="dark"] .deal .tag{color:#111}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .deal .tag{color:#111}}
+
+/* info */
+.info{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.info-grid{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.box h3{font-size:20px;margin-bottom:10px}
+.hours{width:100%;border-collapse:collapse;font-size:15px}
+.hours td{padding:6px 0;border-bottom:1px dashed var(--line)}
+.hours td:last-child{text-align:right;font-weight:500}
+.hours tr.today td{font-weight:800}
+.box p{margin:0 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--surface2);border-radius:999px;padding:6px 12px;font-size:14px}
+.reviews{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.rev{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.stars{color:#E8A800;letter-spacing:2px}
+.rev p{margin:8px 0}
+.rev small{color:var(--muted)}
+.score{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
+.score b{font-size:44px;font-weight:800}
+
+footer{background:var(--hero);color:#cfcfc7;padding:30px 0 90px;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:space-between}
+footer a{color:var(--accent)}
+
+/* cart */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:50;display:none}
+.scrim.show{display:block}
+.drawer{position:fixed;z-index:60;background:var(--surface);color:var(--text);display:flex;flex-direction:column;
+  right:0;top:0;bottom:0;width:min(440px,100%);transform:translateX(100%);transition:transform .25s ease;box-shadow:-10px 0 40px rgba(0,0,0,.3);
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.drawer.show{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid var(--line)}
+.dh h2{font-size:22px}
+.x{background:var(--surface2);color:var(--text);border:0;border-radius:50%;width:36px;height:36px;font-size:18px}
+.db{flex:1;overflow-y:auto;padding:14px 18px}
+.empty{color:var(--muted);text-align:center;padding:30px 10px}
+.line{display:grid;grid-template-columns:1fr auto;gap:4px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.line .nm{font-weight:500}
+.line .sub{color:var(--muted);font-size:13px;grid-column:1}
+.line .lp{font-weight:700;text-align:right}
+.qty{display:flex;align-items:center;gap:8px;grid-column:2;justify-self:end}
+.qty button{width:28px;height:28px;border-radius:8px;border:1.5px solid var(--line);background:var(--surface2);color:var(--text);font-weight:800}
+.total{display:flex;justify-content:space-between;font-weight:800;font-size:18px;padding:14px 0}
+.fld{display:grid;gap:4px;margin-bottom:10px}
+.fld label{font-size:13px;font-weight:500;color:var(--muted)}
+.fld input,.fld textarea,.fld select{width:100%;padding:10px;border-radius:9px;border:1.5px solid var(--line);background:var(--bg);color:var(--text);font:inherit;font-size:15px}
+.seg{display:flex;gap:6px}
+.seg button{flex:1;padding:9px 6px;border-radius:9px;border:1.5px solid var(--line);background:var(--surface2);color:var(--text);font-size:14px}
+.seg button.on{background:var(--accent);color:var(--accent-ink);border-color:var(--text);font-weight:700}
+.df{padding:14px 18px;border-top:1px solid var(--line)}
+.send{width:100%;background:#1FA855;color:#fff;border:0;border-radius:12px;padding:14px;font-weight:800;font-size:16px}
+.err{color:var(--red);font-size:14px;margin:0 0 8px;min-height:1.2em}
+.hint{font-size:12.5px;color:var(--muted);margin:8px 0 0;text-align:center}
+.bar{position:fixed;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom,0px) + 12px);z-index:40;display:none}
+.bar button{width:100%;max-width:520px;margin:0 auto;display:flex;justify-content:space-between;background:var(--accent);color:var(--accent-ink);border:2px solid #111;border-radius:14px;padding:13px 16px;font-weight:800;font-size:16px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.bar.show{display:block}
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 82px);transform:translateX(-50%);background:#111;color:#fff;border-radius:10px;padding:9px 14px;font-size:14px;z-index:70;opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.show{opacity:1}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.drawer{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Innovative <span>Bite</span></a>
+    <nav aria-label="Main">
+      <a href="#menu">Menu</a><a href="#info">Hours &amp; location</a><a href="#reviews">Reviews</a>
+    </nav>
+    <button class="cartbtn" id="openCart" aria-label="Open your order">Order <span class="n" id="cartN">0</span></button>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <div class="status" id="status"><span class="dot"></span><span id="statusTxt">Checking hours…</span></div>
+      <h1>Pizza, burgers<em>and more, hot to your door.</em></h1>
+      <p class="lead">Freshly made pizzas, juicy burgers, rolls, wraps and fries in Model Town Link Road, Lahore. Order online, or call us for delivery.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#menu">Order now</a>
+        <a class="btn ghost" href="tel:03440488080">Call 0344-0488080</a>
+      </div>
+    </div>
+    <div class="pizza">
+      <img src="pizza.jpg" alt="Cheesy pizza slice being lifted from a fresh pizza" width="800" height="504">
+    </div>
+  </div>
+</div>
+<div class="facts"><div class="wrap"><span>Delivery</span><span>Takeaway</span><span>Dine-in</span><span>Open daily 1 pm – 3 am</span><span>Rated 4.7 on Google</span></div></div>
+
+<section id="menu">
+  <div class="wrap">
+    <h2 class="sec-title display">Menu</h2>
+    <p class="sec-sub">Pick a size, tap add, and send your order on WhatsApp. Prices are in Pakistani rupees.</p>
+    <div class="tabs" id="tabs" role="navigation" aria-label="Menu categories"></div>
+    <div id="menuRoot"></div>
+  </div>
+</section>
+
+<section class="info" id="info">
+  <div class="wrap">
+    <h2 class="sec-title display">Hours &amp; location</h2>
+    <p class="sec-sub">Find us, call us, or come in and eat.</p>
+    <div class="info-grid">
+      <div class="box">
+        <h3>Opening hours</h3>
+        <table class="hours" id="hours"></table>
+      </div>
+      <div class="box">
+        <h3>Address</h3>
+        <p>Zainab Tower, Model Town Link Rd,<br>MB Phase 3, GECH Society,<br>Lahore 54600</p>
+        <p><a class="btn primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Innovative+Bite+%26+Pizza+Place+Zainab+Tower+Model+Town+Link+Rd+Lahore">Get directions</a></p>
+        <p style="color:var(--muted);font-size:14px">Free street parking available.</p>
+      </div>
+      <div class="box">
+        <h3>Contact</h3>
+        <p>Home delivery:<br><a href="tel:03440488080"><b>0344-0488080</b></a><br><a href="tel:03269599363"><b>0326-9599363</b></a></p>
+        <p>Restaurant line: <a href="tel:03290707775"><b>0329 0707775</b></a></p>
+        <p>Website: innovativebite.com</p>
+      </div>
+      <div class="box">
+        <h3>Good to know</h3>
+        <div class="chips">
+          <span class="chip">Delivery</span><span class="chip">Takeaway</span><span class="chip">Dine-in</span>
+          <span class="chip">Quick bite</span><span class="chip">Casual</span><span class="chip">Groups</span>
+          <span class="chip">Good for kids</span><span class="chip">Solo dining</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <h2 class="sec-title display">What customers say</h2>
+    <div class="score"><b>4.7</b><span><span class="stars">★★★★★</span><br><small style="color:var(--muted)">from 15 Google reviews</small></span></div>
+    <div class="reviews">
+      <div class="rev"><span class="stars">★★★★★</span><p>“I order regularly. Whenever I feel some craving I order pizza. The cheese is loaded and my cheese craving is fulfilled.”</p><small>Atiqa Rehman</small></div>
+      <div class="rev"><span class="stars">★★★★★</span><p>“Good taste, very good response and quick delivery.”</p><small>Ali Hashmi Ali</small></div>
+      <div class="rev"><span class="stars">★★★★★</span><p>“The best service and food.”</p><small>Syed Faisal Bukhari</small></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b style="color:#fff">Innovative Bite &amp; Pizza Place</b><br>Zainab Tower, Model Town Link Rd, MB Phase 3, GECH Society, Lahore</div>
+    <div>Delivery: <a href="tel:03440488080">0344-0488080</a> · <a href="tel:03269599363">0326-9599363</a><br>Open daily 1:00 pm – 3:00 am</div>
+  </div>
+</footer>
+
+<div class="bar" id="bar"><button id="barBtn"><span id="barCount">0 items</span><span>View order · <span id="barTotal">Rs 0</span></span></button></div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Your order" aria-hidden="true">
+  <div class="dh"><h2 class="display">Your order</h2><button class="x" id="closeCart" aria-label="Close order">✕</button></div>
+  <div class="db" id="cartBody"></div>
+  <div class="df" id="cartFoot"></div>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ====== SETTINGS ====== */
+var WHATSAPP_NUMBER = "923290707775"; // international format, no + or spaces. Change to the number that receives orders.
+
+/* ====== MENU DATA ====== */
+var PIZZA_SIZES = ["Small","Medium","Large","XL"];
+function pz(name,prices,startAt){
+  var s=[]; for(var i=0;i<prices.length;i++){ s.push({l:PIZZA_SIZES[(startAt||0)+i],p:prices[i]}); }
+  return {n:name,s:s};
+}
+function one(name,price,desc){return {n:name,s:[{l:"",p:price}],d:desc||""};}
+function two(name,a,b,la,lb){var s=[];if(a!=null)s.push({l:la,p:a});if(b!=null)s.push({l:lb,p:b});return {n:name,s:s};}
+function drink(name){return {n:name,s:[{l:"Small",p:550},{l:"Medium",p:650},{l:"Large",p:850}]};}
+
+var MENU = [
+ {id:"deals",name:"Deals",note:"Pizza deals: choose Tikka or Fajita where shown.",deal:true,items:[
+  {n:"Deal 1",p:699,c:["1 Small pizza","1 350ml drink","1 Dip sauce"]},
+  {n:"Deal 2",p:550,c:["1 Zinger burger","1 Fries","1 Regular drink"]},
+  {n:"Deal 3",p:599,c:["1 Tikka sandwich","1 Fries","1 Regular drink"]},
+  {n:"Deal 4",p:999,c:["1 Zinger burger","1 Patty burger","1 Fries","1 Dip sauce","1 500ml drink"]},
+  {n:"Deal 5",p:1100,f:1,c:["2 Small pizzas","1 500ml drink"]},
+  {n:"Deal 6",p:1950,f:1,c:["2 Medium pizzas","1 1.5L drink"]},
+  {n:"Deal 7",p:3200,f:1,c:["2 Large pizzas","1 1.5L drink"]},
+  {n:"Deal 8",p:850,f:1,c:["1 Small pizza","1 Zinger burger","1 500ml drink"]},
+  {n:"Deal 9",p:1750,f:1,c:["1 Medium pizza","2 Zinger burgers","1 1.5L drink"]},
+  {n:"Deal 10",p:1550,f:1,c:["1 Small pizza","1 Medium pizza","1 1.5L drink"]},
+  {n:"Deal 11",p:3999,f:1,c:["1 Family pizza","6 Zinger burgers","2 1.5L drinks"]},
+  {n:"Deal 12",p:2899,f:1,c:["1 Large pizza","4 Zinger burgers","1 1.5L drink"]}
+ ]},
+ {id:"regular",name:"Regular pizza",note:"Small · Medium · Large · XL",items:[
+  pz("Chicken Tikka",[599,1099,1899,2399]),
+  pz("Chicken Fajita",[599,1099,1899,2399]),
+  pz("Chicken Supreme",[599,1099,1899,2399]),
+  pz("Sausages Delight",[599,1099,1899,2399]),
+  pz("Vegi Delight",[499,999,1699,2199]),
+  pz("Hot & Spice",[599,1099,1899,2399]),
+  pz("Chicken Mughalai",[599,1099,1899,2399]),
+  pz("Cheeze Lover",[499,999,1799,2299]),
+  pz("Seekh Kabab",[599,999,1899,2399])
+ ]},
+ {id:"premium",name:"Premium pizza",note:"Small · Medium · Large · XL (some flavours start at a bigger size)",items:[
+  pz("Malai Boti",[699,1299,2150,2499]),
+  pz("Chicken Peri Peri",[699,1299,2150,2499]),
+  pz("Chicken Alazado",[699,1299,2150,2499]),
+  pz("B.B.Q Pizza",[699,1299,2150,2499]),
+  pz("Creamy Pizza",[699,1299,2150,2499]),
+  pz("Ranch",[699,1299,2150,2499]),
+  pz("Lazania",[1399,2250,2499],1),
+  pz("Chef Special",[1599,2299,2599],1),
+  pz("Creame Max",[1799,2499],2),
+  pz("Beef Pepperoni",[1299,2150,2499],1)
+ ]},
+ {id:"crusted",name:"Crusted pizza",note:"Medium · Large · XL",items:[
+  pz("Crown Crust",[1599,2299,2599],1),
+  pz("Kabab Crust",[1599,2299,2599],1),
+  pz("Kabab Stuff",[1599,2299,2599],1),
+  pz("Behari Kabab",[1599,2299,2599],1),
+  pz("Zinger Crust",[1599,2299,2599],1)
+ ]},
+ {id:"burgers",name:"Burgers",items:[
+  one("Zinger Burger",400),one("Zinger Cheese Burger",450),one("Smoke Burger",400),one("Patty Burger",350),
+  one("Patty Cheese Burger",400),one("Malai Boti Burger",400),one("Pizza Burger",550),one("Tower Burger",500),
+  one("Double Decker Burger",700),one("Chef Special Burger",1200)
+ ]},
+ {id:"rolls",name:"Paratha rolls & wraps",items:[
+  one("Zinger Paratha Roll",500),one("Chicken Paratha Roll",400),one("Malai Paratha Roll",450),
+  one("Zinger Wrap",800),one("Tortilla Wrap",700),one("Grill Wrap",899)
+ ]},
+ {id:"snacks",name:"Snacks",note:"Check quantities when you order: 6 pieces or 12 pieces.",items:[
+  two("Hot Wings",500,1000,"6 pcs","12 pcs"),
+  two("Nuggets",500,800,"6 pcs","12 pcs"),
+  two("Hot Shots",300,600,"6 pcs","12 pcs"),
+  two("Cheeze Stik",null,999,"6 pcs","12 pcs"),
+  two("Spin Rolls",null,699,"6 pcs","12 pcs"),
+  two("Baked Wings",599,999,"6 pcs","12 pcs")
+ ]},
+ {id:"fries",name:"Fries",items:[
+  two("Plain Fries",399,null,"Medium","Large"),
+  two("Masala Fries",450,null,"Medium","Large"),
+  two("Loaded Fries",550,899,"Medium","Large"),
+  two("Cheeze Loaded Fries",550,999,"Medium","Large")
+ ]},
+ {id:"pasta",name:"Pasta",items:[
+  two("Macaroni Pasta",550,999,"Medium","Large"),
+  two("Cheeze Pasta",699,1050,"Medium","Large"),
+  two("Crunchi Pasta",650,1100,"Medium","Large")
+ ]},
+ {id:"sandwich",name:"Sandwiches",items:[
+  one("Tikka Sandwich",500),one("Club Sandwich",600),one("Euro Sandwich",800),one("Mexican Sandwich",1000)
+ ]},
+ {id:"shakes",name:"Shakes & drinks",note:"Small · Medium · Large",items:[
+  drink("Oreo Shake"),drink("Banana Shake"),drink("Mango Shake"),drink("Strawberry Shake"),drink("Chocolate Shake"),
+  drink("Mint Margarita"),drink("Pina Colada"),drink("Mint Lemonade"),drink("Cocktail Shake"),drink("Special Shake"),
+  drink("Mix Berry Shake"),drink("Italian Soda: Strawberry"),drink("Italian Soda: Blueberry"),drink("Italian Soda: Peach")
+ ]}
+];
+
+/* ====== HELPERS ====== */
+function money(n){return "Rs "+Number(n).toLocaleString("en-US");}
+function $(id){return document.getElementById(id);}
+var sel = {};
+var cart = [];
+try{ var saved = JSON.parse(localStorage.getItem("ib_cart")||"[]"); if(Array.isArray(saved)) cart = saved; }catch(e){}
+function persist(){ try{ localStorage.setItem("ib_cart", JSON.stringify(cart)); }catch(e){} }
+
+/* ====== MENU RENDER ====== */
+function cardHTML(ci,ii){
+  var cat = MENU[ci], it = cat.items[ii], id = ci+"-"+ii;
+  var st = sel[id] || (sel[id]={s:0,f:"Tikka"});
+  if(cat.deal){
+    var flav = it.f ? '<select class="flav" data-act="flav" data-id="'+id+'" aria-label="Pizza flavour for '+it.n+'"><option'+(st.f==="Tikka"?" selected":"")+'>Tikka</option><option'+(st.f==="Fajita"?" selected":"")+'>Fajita</option></select>' : "";
+    return '<div class="card deal" id="c'+id+'"><span class="tag">'+it.n+'</span><ul>'+it.c.map(function(x){return "<li>"+x+"</li>";}).join("")+'</ul>'+flav+
+      '<button class="add" data-act="add" data-id="'+id+'"><span>Add to order</span><span>'+money(it.p)+'</span></button></div>';
+  }
+  var cur = it.s[Math.min(st.s,it.s.length-1)];
+  var sizes = "";
+  if(it.s.length>1 || (it.s[0].l && it.s.length>1)){
+    sizes = '<div class="sizes" role="group" aria-label="Size">'+it.s.map(function(z,k){
+      return '<button class="size'+(k===st.s?" on":"")+'" data-act="size" data-id="'+id+'" data-k="'+k+'"><b>'+z.l+'</b>'+money(z.p)+'</button>';
+    }).join("")+'</div>';
+  } else if(it.s[0].l){
+    sizes = '<div class="sizes"><span class="size on" style="cursor:default"><b>'+it.s[0].l+'</b>'+money(it.s[0].p)+'</span></div>';
+  }
+  return '<div class="card" id="c'+id+'"><div class="row"><div><h4>'+it.n+'</h4></div><span class="price">'+(it.s.length>1?"":money(cur.p))+'</span></div>'+sizes+
+    '<button class="add" data-act="add" data-id="'+id+'"><span>Add to order</span><span>'+money(cur.p)+'</span></button></div>';
+}
+function buildMenu(){
+  var tabs = "", html = "";
+  MENU.forEach(function(cat,ci){
+    tabs += '<a class="tab" href="#cat-'+cat.id+'" data-cat="'+cat.id+'">'+cat.name+'</a>';
+    html += '<div class="cat" id="cat-'+cat.id+'"><h3>'+cat.name+'</h3>'+(cat.note?'<p class="note">'+cat.note+'</p>':'')+'<div class="grid">'+
+      cat.items.map(function(_,ii){return cardHTML(ci,ii);}).join("")+'</div></div>';
+  });
+  $("tabs").innerHTML = tabs; $("menuRoot").innerHTML = html;
+}
+function refreshCard(id){
+  var p = id.split("-"); var el = $("c"+id); if(!el) return;
+  var tmp = document.createElement("div"); tmp.innerHTML = cardHTML(+p[0],+p[1]);
+  el.replaceWith(tmp.firstChild);
+}
+$("menuRoot").addEventListener("click",function(e){
+  var b = e.target.closest("[data-act]"); if(!b) return;
+  var id = b.dataset.id, act = b.dataset.act;
+  if(act==="size"){ sel[id].s = +b.dataset.k; refreshCard(id); }
+  if(act==="add"){ addToCart(id); }
+});
+$("menuRoot").addEventListener("change",function(e){
+  var b = e.target.closest("[data-act='flav']"); if(!b) return;
+  sel[b.dataset.id].f = b.value;
+});
+
+/* ====== CART ====== */
+function addToCart(id){
+  var p = id.split("-"), cat = MENU[+p[0]], it = cat.items[+p[1]], st = sel[id];
+  var name, price, note = "", key;
+  if(cat.deal){ name = it.n; price = it.p; note = it.c.join(", ") + (it.f ? " (" + st.f + ")" : ""); key = name + (it.f?st.f:""); }
+  else { var z = it.s[Math.min(st.s,it.s.length-1)]; name = it.n; price = z.p; note = z.l; key = name + "|" + z.l; }
+  var found = cart.filter(function(x){return x.key===key;})[0];
+  if(found) found.q++; else cart.push({key:key,name:name,note:note,price:price,q:1});
+  persist(); renderCart(); toast(name + " added");
+}
+function totals(){ var n=0,t=0; cart.forEach(function(x){n+=x.q;t+=x.q*x.price;}); return {n:n,t:t}; }
+var orderType = "Delivery";
+var form = {name:"",phone:"",address:"",notes:""};
+function renderCart(){
+  var T = totals();
+  $("cartN").textContent = T.n; $("barCount").textContent = T.n + (T.n===1?" item":" items"); $("barTotal").textContent = money(T.t);
+  $("bar").classList.toggle("show", T.n>0 && !$("drawer").classList.contains("show"));
+  if(!cart.length){
+    $("cartBody").innerHTML = '<div class="empty">Your order is empty.<br>Add something from the menu to get started.</div>';
+    $("cartFoot").innerHTML = ""; return;
+  }
+  $("cartBody").innerHTML = cart.map(function(x,i){
+    return '<div class="line"><div><div class="nm">'+x.name+'</div></div><div class="lp">'+money(x.price*x.q)+'</div>'+
+      '<div class="sub">'+x.note+'</div><div class="qty"><button data-q="-1" data-i="'+i+'" aria-label="Remove one '+x.name+'">−</button><span>'+x.q+'</span><button data-q="1" data-i="'+i+'" aria-label="Add one '+x.name+'">+</button></div></div>';
+  }).join("") +
+  '<div class="total"><span>Subtotal</span><span>'+money(T.t)+'</span></div>'+
+  '<div class="fld"><label>How would you like it?</label><div class="seg" id="seg">'+
+    ["Delivery","Takeaway","Dine-in"].map(function(o){return '<button type="button" data-o="'+o+'" class="'+(o===orderType?"on":"")+'">'+o+'</button>';}).join("")+'</div></div>'+
+  '<div class="fld"><label for="fName">Your name</label><input id="fName" autocomplete="name" value="'+esc(form.name)+'"></div>'+
+  '<div class="fld"><label for="fPhone">Phone number</label><input id="fPhone" type="tel" autocomplete="tel" inputmode="tel" value="'+esc(form.phone)+'"></div>'+
+  '<div class="fld" id="addrFld" style="'+(orderType==="Delivery"?"":"display:none")+'"><label for="fAddr">Delivery address</label><textarea id="fAddr" rows="2" autocomplete="street-address">'+esc(form.address)+'</textarea></div>'+
+  '<div class="fld"><label for="fNotes">Notes (optional)</label><textarea id="fNotes" rows="2" placeholder="Extra spicy, no onions…">'+esc(form.notes)+'</textarea></div>';
+  $("cartFoot").innerHTML = '<p class="err" id="err"></p><button class="send" id="send">Send order on WhatsApp</button><p class="hint">Delivery charges and timing are confirmed by the restaurant. Prefer to talk? Call 0344-0488080.</p>';
+}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");}
+$("cartBody").addEventListener("input",function(e){
+  var m = {fName:"name",fPhone:"phone",fAddr:"address",fNotes:"notes"}[e.target.id]; if(m) form[m] = e.target.value;
+});
+$("cartBody").addEventListener("click",function(e){
+  var q = e.target.closest("[data-q]");
+  if(q){ var i=+q.dataset.i; cart[i].q += +q.dataset.q; if(cart[i].q<=0) cart.splice(i,1); persist(); renderCart(); return; }
+  var o = e.target.closest("[data-o]");
+  if(o){ orderType = o.dataset.o; renderCart(); }
+});
+$("cartFoot").addEventListener("click",function(e){
+  if(e.target.id!=="send") return;
+  var err = $("err");
+  if(!form.name.trim()){ err.textContent = "Enter your name."; $("fName").focus(); return; }
+  if(form.phone.replace(/\D/g,"").length<10){ err.textContent = "Enter a valid phone number."; $("fPhone").focus(); return; }
+  if(orderType==="Delivery" && !form.address.trim()){ err.textContent = "Enter your delivery address."; $("fAddr").focus(); return; }
+  var T = totals();
+  var msg = "*New order – Innovative Bite*\n\n" +
+    "Name: "+form.name.trim()+"\nPhone: "+form.phone.trim()+"\nType: "+orderType+"\n"+
+    (orderType==="Delivery" ? "Address: "+form.address.trim()+"\n" : "") + "\n" +
+    cart.map(function(x){return x.q+" x "+x.name+(x.note?" ("+x.note+")":"")+" – "+money(x.price*x.q);}).join("\n") +
+    "\n\n*Subtotal: "+money(T.t)+"*" + (form.notes.trim()?"\n\nNotes: "+form.notes.trim():"");
+  var url = "https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(msg);
+  var w = null; try{ w = window.open(url,"_blank"); }catch(x){}
+  if(!w){ window.location.href = url; }
+});
+
+/* drawer */
+function openCart(){ $("drawer").classList.add("show"); $("drawer").setAttribute("aria-hidden","false"); $("scrim").classList.add("show"); $("bar").classList.remove("show"); renderCart(); }
+function closeCart(){ $("drawer").classList.remove("show"); $("drawer").setAttribute("aria-hidden","true"); $("scrim").classList.remove("show"); renderCart(); }
+$("openCart").onclick = openCart; $("barBtn").onclick = openCart; $("closeCart").onclick = closeCart; $("scrim").onclick = closeCart;
+document.addEventListener("keydown",function(e){ if(e.key==="Escape") closeCart(); });
+var tt; function toast(t){ var el=$("toast"); el.textContent=t; el.classList.add("show"); clearTimeout(tt); tt=setTimeout(function(){el.classList.remove("show");},1400); }
+
+/* ====== HOURS & STATUS (Lahore time) ====== */
+function lahoreNow(){
+  var parts = new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Karachi",weekday:"long",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date());
+  var o = {}; parts.forEach(function(p){o[p.type]=p.value;});
+  return {day:o.weekday, mins:(+o.hour%24)*60 + +o.minute};
+}
+function buildHours(){
+  var days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], now;
+  try{ now = lahoreNow(); }catch(e){ now = {day:"",mins:0}; }
+  $("hours").innerHTML = days.map(function(d){ return '<tr class="'+(d===now.day?"today":"")+'"><td>'+d+'</td><td>1:00 pm – 3:00 am</td></tr>'; }).join("");
+}
+function updateStatus(){
+  var s = $("status"), t = $("statusTxt"), now;
+  try{ now = lahoreNow(); }catch(e){ t.textContent = "Open daily 1 pm – 3 am"; return; }
+  var open = now.mins >= 13*60 || now.mins < 3*60;
+  s.className = "status " + (open?"open":"closed");
+  t.textContent = open ? "Open now · kitchen closes at 3 am" : "Closed now · opens at 1 pm";
+}
+
+/* tab highlight */
+function watchTabs(){
+  var links = document.querySelectorAll(".tab"), cats = MENU.map(function(c){return $("cat-"+c.id);});
+  if(!("IntersectionObserver" in window)) return;
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(en){ if(en.isIntersecting){
+      var id = en.target.id.replace("cat-","");
+      links.forEach(function(l){ var on = l.dataset.cat===id; l.classList.toggle("active",on); if(on){ var tb=$("tabs"); tb.scrollTo({left:l.offsetLeft-20,behavior:"smooth"}); } });
+    }});
+  },{rootMargin:"-130px 0px -70% 0px"});
+  cats.forEach(function(c){io.observe(c);});
+}
+
+buildMenu(); buildHours(); updateStatus(); renderCart(); watchTabs();
+setInterval(updateStatus,60000);
+</script>
+</body>
+</html>
